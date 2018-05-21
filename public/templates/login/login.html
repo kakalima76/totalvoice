@@ -1,0 +1,70 @@
+
+<center class="fonteBranca"><h4>CADASTRO DE APOIO POLÍTICO</h4></center>
+<center class="fonteBranca"><h5>SINDICATO DOS BARRAQUEIROS DE PRAIA</h5></center>
+
+<div class="home fonteBranca">
+
+
+
+    <div ng-hide="vm.esconder">
+
+
+  		<div class="form-group">
+    		<label>Telefone</label>
+    			<input type="number" class="form-control" placeholder="Ex: 21999999990 (DDD + TEL)." ng-model='vm.seguidor.telefone' ng-blur="vm.enviarSMS(vm.seguidor.telefone)" maxlength="11">
+  		</div>
+  
+  		<div class="form-group">
+    			<label>Código de confirmação</label>
+    				<input type="text" class="form-control"  placeholder="insira o código" ng-model='vm.seguidor.codigo'>
+  		</div>
+
+           <center>
+              
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" ng-click="vm.prosseguir()" ng-show="vm.mostrarLeia">{{vm.labelLeia}}</button>
+              
+          </center>
+          
+          <div class="row distanciar">
+            <div class="col">
+              <div class="collapse multi-collapse" id="multiCollapseExample2">
+                <div class="card card-body justificado">
+                  {{vm.texto}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+ 
+     <button type="button" class="btn btn-primary btn-lg btn-block" ng-show="vm.mostrarProsseguir" ng-click="vm.send()">Prosseguir</button>
+    </div>
+
+    <div ng-hide="vm.mostrarSegundaParte">
+
+    <div class="form-group">
+        <label>CPF</label>
+          <input type="number" class="form-control" placeholder="Informe o CPF" ng-model='vm.seguidor.cpf'>
+      </div>
+  
+      <div class="form-group">
+          <label>CEP</label>
+            <input type="text" class="form-control" placeholder="Informe o CEP" ng-model='vm.seguidor.cep'>
+      </div>
+
+      <label class="fonteBranca">Tipo de relacionamento</label>
+          <select class="form-control" ng-model='vm.seguidor.tipo' ng-options="item.tipo for item in vm.filtroTipo track by item.tipo">
+        </select>
+
+        <div id="botaoSeguir">
+         <button type="button"  class="btn btn-primary btn-lg btn-block" ng-show="vm.mostrarProsseguir" ng-click="vm.send()">Enviar</button>
+        </div>
+      </div>
+
+    </div>
+
+</div>
+        <!-- <center>
+          <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate" ng-show="vm.mostrarLoading">
+          </span>
+        </center> -->
+</div>
